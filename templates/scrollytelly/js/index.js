@@ -1,6 +1,6 @@
 import { SlideDeck } from './slidedeck.js';
 
-const map = L.map('map', {scrollWheelZoom: false}).setView([0, 0], 0);
+const map = L.map('map', { scrollWheelZoom: false }).setView([0, 0], 0);
 
 // ## The Base Tile Layer
 const baseTileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_3nr5_1_a495e7b51cea217486734425', {

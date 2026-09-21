@@ -1,4 +1,4 @@
-Add a readme for your story map here. Include content overview, data citations, and any relevant technical details.
+This storymap is an basic introduction for major wine in France, specifically designed for people with few knowledge in wine and beginners, aiming to let people know more about the charm of wine. 
 
 
 

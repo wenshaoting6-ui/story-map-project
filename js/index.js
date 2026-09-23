@@ -1,6 +1,15 @@
 import { SlideDeck } from './slidedeck.js';
+const SmoothRenderer = L.SVG.extend({
+  // Override the default _onZoom function, which simply scales the lower
+  // resolution shapes. Instead, we want to reproject the shapes at each new
+  // zoom level, as is done by default when zooming ends.
+  _onZoom: function () {
+    this._onZoomEnd();
+    this._update();
+  },
+});
 
-const map = L.map('map', { scrollWheelZoom: false }).setView([0, 0], 0);
+const map = L.map('map', { renderer: new SmoothRenderer(), scrollWheelZoom: false }).setView([0, 0], 0);
 
 // ## The Base Tile Layer
 const baseTileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_3nr5_1_a495e7b51cea217486734425', {
@@ -12,7 +21,6 @@ baseTileLayer.addTo(map);
 // ## Interface Elements
 const container = document.querySelector('.slide-section');
 const slides = document.querySelectorAll('.slide');
-
 const slideOptions = {
   'second-slide': {
     style: (feature) => {
@@ -26,7 +34,7 @@ const slideOptions = {
       layer.bindTooltip(feature.properties.label);
     },
   },
-  
+
   'third-slide': {
     style: (feature) => {
       return {
@@ -65,7 +73,7 @@ const slideOptions = {
       layer.bindTooltip(feature.properties.label);
     },
   },
-  
+
   'sixth-slide': {
     style: (feature) => {
       return {

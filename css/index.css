@@ -46,7 +46,7 @@ body {
 
 .slide h1, .slide h2 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  color: #4a1521; /* Deep wine burgundy */
+  color: #4a1521; 
   margin-top: 0;
   letter-spacing: 0.5px;
 }
